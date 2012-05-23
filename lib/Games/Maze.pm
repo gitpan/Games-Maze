@@ -1,12 +1,12 @@
 package Games::Maze;
-require 5.8.3;
+use 5.008003;
 
 use integer;
 use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.05';
+our $VERSION = '1.06';
 
 
 our $North      = 0x0001;	# 0;
@@ -609,11 +609,12 @@ sub _on_pathmark
 package Games::Maze::Quad;
 use parent -norequire, 'Games::Maze';
 
-require 5.6.0;
 use integer;
 use strict;
 use warnings;
 use Carp;
+
+our $VERSION = '1.06';
 
 #
 # to_ascii
@@ -957,11 +958,12 @@ sub _next_direct
 package Games::Maze::Hex;
 use parent -norequire, 'Games::Maze';
 
-require 5.6.0;
 use integer;
 use strict;
 use warnings;
 use Carp;
+
+our $VERSION = '1.06';
 
 #
 # to_ascii
@@ -1619,11 +1621,6 @@ Games::Maze - Create Mazes as Objects.
  print $m1->to_hex_dump();
 
  %maze_attr = $m1->describe();
-
-=head1 PREREQUISITES
-
-Perl 5.6 or later. This is the version of perl under which this module
-was developed.
 
 =head1 DESCRIPTION
 

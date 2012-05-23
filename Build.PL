@@ -7,8 +7,23 @@ my $build = Module::Build->new(
 
 	dist_abstract => 'Create Mazes',
 	dist_author => 'John M. Gamble <jgamble@cpan.org>',
-	dist_version => '1.05',
+	dist_version => '1.06',
 	dist_name => 'Games-Maze',
+
+	#
+	# Packages in the same file need to be versioned here.
+	#
+	provides => {
+		'Games::Maze' => {
+			file => 'lib/Games/Maze.pm',
+		},
+		'Games::Maze::Quad' => {
+			file => 'lib/Games/Maze.pm',
+		},
+		'Games::Maze::Hex' => {
+			file => 'lib/Games/Maze.pm',
+		},
+	},
 
 	requires => { perl=> '5.8.3' },
 	configure_requires => { 'Module::Build' => '0.3624'},
@@ -27,6 +42,7 @@ my $build = Module::Build->new(
 #				url => 'git://github.com/jgamble/Games-Maze.git',
 #				web => 'https://github.com/jgamble/Games-Maze',
 #				type => 'git',
+#			}
 		},
 	},
 );
