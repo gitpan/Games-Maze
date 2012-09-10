@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 
 our $North      = 0x0001;	# 0;
@@ -607,14 +607,14 @@ sub _on_pathmark
 # Maze creation is done through the maze object's methods, listed below:
 #
 package Games::Maze::Quad;
-use parent -norequire, 'Games::Maze';
+use parent qw(-norequire Games::Maze);
 
 use integer;
 use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 #
 # to_ascii
@@ -956,14 +956,14 @@ sub _next_direct
 # Maze creation is done through the maze object's methods, listed below:
 #
 package Games::Maze::Hex;
-use parent -norequire, 'Games::Maze';
+use parent qw(-norequire Games::Maze);
 
 use integer;
 use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 #
 # to_ascii
@@ -1723,7 +1723,7 @@ would always return North unless it wasn't on the list, whereupon the next
 available direction would be tried.
 
 The direction values are available by using their variable names:
-$Games::Maze::North, $Games::Maze::NorthWest, $Games::Maze::West, et cetera.
+C<$Games::Maze::North>, C<$Games::Maze::NorthWest>, C<$Games::Maze::West>, et cetera.
 
 =item 'generate'
 
@@ -1740,21 +1740,21 @@ multiply-connected maze has one or more paths.
 
 =head3 make
 
-$obj->make();
+ $obj->make();
 
 Perform a random walk through the walls of the grid. This creates a
 simply-connected maze.
 
 =head3 solve
 
-$obj->solve();
+ $obj->solve();
 
 Finds a solution to the maze by examining a path until a
 dead end is reached.
 
 =head3 unsolve
 
-$obj->unsolve();
+ $obj->unsolve();
 
 Erase the path from the maze that was created by the solve() method.
 
@@ -1766,13 +1766,13 @@ when needed.
 
 =head3 describe
 
-%maze_attributes = $obj->describe();
+ %maze_attributes = $obj->describe();
 
 Returns as a hash the attributes of the maze object.
 
 =head3 internals
 
-%maze_internals = $obj->internals();
+ %maze_internals = $obj->internals();
 
 Returns as a hash the 'hidden' internal values of the maze object,
 excepting the maze cell values, which can be retrieved via the
@@ -1835,4 +1835,5 @@ string, each level separated by a single newline.
 =head1 AUTHOR
 
 John M. Gamble may be found at B<jgamble@cpan.org>
-1;
+
+=cut
